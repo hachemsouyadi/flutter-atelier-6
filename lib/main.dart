@@ -23,14 +23,20 @@ class _MyWidgetState extends State<MyWidget> {
  children: [
   Text("La valeur du compteur est : $compteur"),
  Text("Atelier 4 - StatefulWidget"),
- ElevatedButton(
- onPressed: () {
- setState(() {
- compteur++;
- });
- },
- child: Text("Incrémenter"),
+ Row(
+ mainAxisAlignment: MainAxisAlignment.center,
+ children: [
+ ElevatedButton(onPressed: () { setState(() { compteur--; }); },
+child: Text("-")),
+ SizedBox(width: 10),
+ ElevatedButton(onPressed: () { setState(() { compteur = 0; }); },
+child: Text("Réinitialiser")),
+ SizedBox(width: 10),
+ ElevatedButton(onPressed: () { setState(() { compteur++; }); },
+child: Text("+")),
+ ],
 ),
+
  ],
  ),
  ),
