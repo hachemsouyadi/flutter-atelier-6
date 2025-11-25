@@ -12,6 +12,7 @@ class MyWidget extends StatefulWidget {
 
 class _MyWidgetState extends State<MyWidget> {
   int compteur = 0;
+double degre = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,18 @@ Icon(Icons.refresh)),
  SizedBox(width: 10),
  IconButton(onPressed: () { setState(() { compteur++; }); }, icon:
 Icon(Icons.add)),
+Text("Merci de choisir le degré de rotation"),
+Slider(
+ value: degre,
+ min: 0,
+ max: 360,
+ onChanged: (value) {
+ setState(() {
+ degre = value;
+ });
+ },
+),
+Text("Le degré choisi est${degre.toStringAsFixed(0)}")
  ],
 ),
 
